@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import axios from 'axios';
-//import Landing from './Landing';
 import './App.css';
 
 URL = "https://api.spaceXdata.com/v3/launches?limit=100&amp;launch_success=true";
@@ -23,15 +22,14 @@ class App extends Component {
 			.then(({ data }) => {
 				this.setState({
           post: data,
-					allPosts: data // array data from JSON stored in these
+					allPosts: data 
 				});
 			})
 			.catch(err => {});
 	}
 
 	_onKeyUp = e => {
-		// filter post list by title using onKeyUp function
-		const post = this.state.allPosts.filter(item =>
+    	const post = this.state.allPosts.filter(item =>
 			item.mission_name.toLowerCase().includes(e.target.value.toLowerCase())
 		);
 		this.setState({ post });
@@ -56,9 +54,7 @@ _filterByLaunch = launch => {
 	this.setState({ post });
 	}
   
-  
-  
-	render() {
+  	render() {
 		return (
       
 			<div className="container-fluid">
@@ -121,7 +117,7 @@ _filterByLaunch = launch => {
   </div>
   <div className="w3-show-inline-block">
   <div className="w3-bar">
-    <button className="w3-btn w3-teal"  onClick={() => this._filterByYear('2020')}>2020</button>
+  <button className="w3-btn w3-teal"  onClick={() => this._filterByYear('2020')}>2020</button>
     
     
   </div>
@@ -131,7 +127,7 @@ _filterByLaunch = launch => {
     
 	  <div className="w3-show-inline-block">
   <div className="w3-bar">
-    <button className="btn btn-success"  onClick={() => this._filterByLaunch(true)}>True</button>
+  <button className="btn btn-success"  onClick={() => this._filterByLaunch(true)}>True</button>
   <button className="btn btn-success"  onClick={() => this._filterByLaunch(false)}>False</button>
     
   </div>
@@ -141,7 +137,7 @@ _filterByLaunch = launch => {
     
 	  <div className="w3-show-inline-block">
   <div className="w3-bar">
-     <button className="btn btn-success"  onClick={() => this._filterByLanding(true)}>True</button>
+  <button className="btn btn-success"  onClick={() => this._filterByLanding(true)}>True</button>
   <button className="btn btn-success"  onClick={() => this._filterByLanding(false)}>False</button>
   </div>
   </div>
@@ -151,7 +147,7 @@ _filterByLaunch = launch => {
             
           <article>
    <ul className="data-list">
-{/* post items mapped in a list linked to onKeyUp function */}
+
 {this.state.post.map((item, index) => (
 <li className={"block-" + index}>
 <div className="title">
